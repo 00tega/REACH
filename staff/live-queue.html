@@ -4,7 +4,7 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Document</title>
-        <link rel="stylesheet" href="">
+        <link rel="stylesheet" href="styles.css">
     </head>
     <body>
         <header>
@@ -18,69 +18,67 @@
             </nav>
         </header>
         <main>
-            <div>
+            <div class="role">
                 <a href="/index.html">Security Desk</a>
                 <a href="../staff/live-queue.html">Staff</a>
                 <a href="../institution/overview.html">Institution</a>
                 <a href="../operator/overview.html">Operator</a>
             </div>
             <h1>Response Staff</h1>
-            <div>
+            <div class="staff-header-desc">
                 <h2>My Tasks</h2>
                 <p>Tasks appear after security desk Accept</p>
             </div>
-            <div>
-                <div>
+            <div class="staff-task-info">
+                <div class="staff-task-amount">
                     <p>Open Tasks</p>
                     <p>2</p>
                 </div>
-                <div>
+                <div class="staff-task-name">
                     <p>Shift Head</p>
                     <p>Amadi Okonkwo</p>
                 </div>
             </div>
-            <div>
-                <div>
+            <div class="task-action">
+                <div class="task-action-current">
                     <button>To-do</button>
                     <button>Responded</button>
                 </div>
-                <div>
-                    <div>
-                        <div>
-                            <div>
-                                <p>REACH - 8841</p>
-                                <p>MEDICAL - Block 24 lobby</p>
-                                <p>AI VERIFYING - weak channel - conf 0.39 - FP-1515</p>
-                            </div>
-                            <p>Responding</p>
+                <div class="task-action-card">
+                    <div class="task-action-location">
+                        <div class="task-action-location-info">
+                            <p>REACH - 8841</p>
+                            <p>MEDICAL - Block 24 lobby</p>
+                            <p>AI VERIFYING - weak channel - conf 0.39 - FP-1515</p>
                         </div>
-                        <div>
+                        <p class="task-action-location-responding">Responding</p>
+                    </div>
+                    <div class="task-action-form">
+                        <div class="task-action-form-input">
                             <div>
-                                <div>
-                                    <input type="text">
-                                    <label for="">Call reporter to confirm</label>
-                                </div>
-                                <div>
-                                    <input type="text">
-                                    <label for="">Review evidence</label>
-                                </div>
-                                <div>
-                                    <input type="text">
-                                    <label for="">Assess Scene</label>
-                                </div>
+                                <input type="checkbox">
+                                <label for="">Call reporter to confirm</label>
                             </div>
-                            <button>I’m On Scene</button>
+                            <div>
+                                <input type="checkbox">
+                                <label for="">Review evidence</label>
+                            </div>
+                            <div>
+                                <input type="checkbox">
+                                <label for="">Assess Scene</label>
+                            </div>
                         </div>
+                        <button>I’m On Scene</button>
                     </div>
                 </div>
             </div>
-            <div>
-                <div>
+            <div class="task-verify">
+                <div class="task-verify-info">
                     <p>REACH - 8841</p>
                     <p>OTHER - Block C lobby</p>
                     <p>AI VERIFYING - weak channel - conf 0.39 - FP-1515</p>
                 </div>
-                <p>Verifying    </p>
+                <p class="task-verify-verifying">Verifying</p>
             </div>
         </main>
     </body>
