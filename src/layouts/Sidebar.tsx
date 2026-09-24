@@ -1,5 +1,7 @@
 import React from 'react';
 import { NavLink, useLocation, Link } from 'react-router-dom';
+import { useAuth } from '../context/AuthContext';
+import { ReachLogo } from '../components/common/ReachLogo';
 
 interface SidebarProps {
   isOpen: boolean;
@@ -13,6 +15,7 @@ interface NavItem {
 }
 
 export const Sidebar: React.FC<SidebarProps> = ({ isOpen, onClose }) => {
+  const { user, logout } = useAuth();
   const location = useLocation();
   const pathname = location.pathname;
 
@@ -24,7 +27,7 @@ export const Sidebar: React.FC<SidebarProps> = ({ isOpen, onClose }) => {
         items: [{ label: 'Live Queue', path: '/staff/live-queue' }],
       };
     }
-    if (pathname.startsWith('/institution')) {
+    if (pathname.startsWith('/institution') || pathname.startsWith('/admin')) {
       return {
         title: 'Institution',
         items: [
@@ -76,7 +79,8 @@ export const Sidebar: React.FC<SidebarProps> = ({ isOpen, onClose }) => {
       <aside className={`app-sidebar ${isOpen ? 'app-sidebar--open' : ''}`}>
         <div className="app-sidebar__content">
           <Link to="/" className="app-sidebar__logo" onClick={onClose}>
-            REACH
+            <ReachLogo size={28} />
+            <span>REACH</span>
           </Link>
 
           <nav className="app-sidebar__nav" aria-label="Role Navigation">
@@ -102,8 +106,41 @@ export const Sidebar: React.FC<SidebarProps> = ({ isOpen, onClose }) => {
               ))}
             </ul>
           </nav>
+
+          {user && (
+            <div style={{ marginTop: 'auto', paddingTop: '1.25rem', borderTop: '1px solid var(--reach-border-subtle)' }}>
+              <div style={{ fontSize: '0.85rem', fontWeight: 700, color: 'var(--reach-text-primary)' }}>
+                {user.name}
+              </div>
+              <div style={{ fontSize: '0.75rem', color: 'var(--reach-text-muted)', textTransform: 'capitalize', marginBottom: '0.75rem' }}>
+                {user.role.replace('-', ' ')}
+              </div>
+              <button
+                type="button"
+                onClick={() => {
+                  onClose();
+                  logout();
+                }}
+                style={{
+                  fontSize: '0.75rem',
+                  fontWeight: 600,
+                  color: 'var(--reach-brand)',
+                  backgroundColor: 'var(--reach-brand-light)',
+                  border: 'none',
+                  borderRadius: '6px',
+                  padding: '6px 10px',
+                  cursor: 'pointer',
+                  width: '100%',
+                  textAlign: 'center',
+                }}
+              >
+                Log out
+              </button>
+            </div>
+          )}
         </div>
       </aside>
     </>
   );
 };
+

@@ -1,4 +1,5 @@
 import React from 'react';
+import { ReachLogo } from './ReachLogo';
 
 interface SectionHeaderProps {
   eyebrow?: string;
@@ -7,6 +8,7 @@ interface SectionHeaderProps {
   subtitle?: string;
   actions?: React.ReactNode;
   className?: string;
+  showLogo?: boolean;
 }
 
 export const SectionHeader: React.FC<SectionHeaderProps> = ({
@@ -16,11 +18,13 @@ export const SectionHeader: React.FC<SectionHeaderProps> = ({
   subtitle,
   actions,
   className = '',
+  showLogo = true,
 }) => {
   return (
     <div className={`page-intro ${className}`}>
       {(eyebrow || tag) && (
         <div className="page-intro__eyebrow">
+          {showLogo && <ReachLogo size={20} />}
           {eyebrow && <span>{eyebrow}</span>}
           {tag && <span className="page-intro__tag">{tag}</span>}
         </div>

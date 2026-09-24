@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Menu } from 'lucide-react';
+import { ReachLogo } from '../components/common/ReachLogo';
 
 interface MobileHeaderProps {
   onToggleSidebar: () => void;
@@ -9,8 +10,9 @@ interface MobileHeaderProps {
 export const MobileHeader: React.FC<MobileHeaderProps> = ({ onToggleSidebar }) => {
   return (
     <header className="mobile-header">
-      <Link to="/" className="mobile-header__logo">
-        REACH
+      <Link to="/" className="mobile-header__logo" style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+        <ReachLogo size={24} />
+        <span>REACH</span>
       </Link>
       <button
         type="button"

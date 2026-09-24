@@ -2,39 +2,140 @@
    REACH Component Styles
    ========================================================================== */
 
-/* --- Role Switcher --- */
-.role-switcher {
+/* --- App Top Navigation Bar --- */
+.app-top-nav-bar {
   display: flex;
-  flex-wrap: wrap;
-  gap: 0.75rem;
   align-items: center;
-}
-
-.role-switcher__link {
-  text-decoration: none;
-  color: var(--reach-text-primary);
-  background: var(--reach-bg-surface);
-  padding: 0.5rem 1rem;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+  padding: 0.75rem 1.25rem;
+  background-color: var(--reach-bg-surface);
+  border: 1px solid var(--reach-border-subtle);
   border-radius: var(--reach-radius-md);
-  font-size: 0.95rem;
-  font-weight: 600;
-  transition: all 0.15s ease-in-out;
-  border: 1px solid transparent;
   box-shadow: var(--reach-shadow-sm);
 }
 
-.role-switcher__link:hover {
-  background: var(--reach-bg-card-hover);
+.portal-breadcrumb {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.95rem;
 }
 
-.role-switcher__link--active {
-  background: var(--reach-brand);
-  color: var(--reach-text-inverse);
-  box-shadow: 0 2px 8px rgba(200, 30, 30, 0.3);
+.portal-breadcrumb__name {
+  font-weight: 800;
+  color: var(--reach-text-primary);
+  letter-spacing: -0.01em;
 }
 
-.role-switcher__link--active:hover {
-  background: var(--reach-brand-dark);
+.portal-breadcrumb__divider {
+  color: var(--reach-text-muted);
+  font-weight: 400;
+}
+
+.portal-breadcrumb__section {
+  color: var(--reach-text-secondary);
+  font-weight: 500;
+}
+
+.top-bar-right {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-left: auto;
+}
+
+.mesh-status-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 10px;
+  background: #f0fdf4;
+  border: 1px solid #bbf7d0;
+  border-radius: 99px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: #166534;
+}
+
+.mesh-status-chip__dot {
+  width: 7px;
+  height: 7px;
+  background: #22c55e;
+  border-radius: 50%;
+  animation: pulse-mesh-dot 2s infinite;
+}
+
+@keyframes pulse-mesh-dot {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.4;
+    transform: scale(0.85);
+  }
+}
+
+.user-chip {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.user-chip__info {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.2;
+  text-align: right;
+}
+
+.user-chip__name {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--reach-text-primary);
+}
+
+.user-chip__role {
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: var(--reach-brand);
+  text-transform: capitalize;
+}
+
+.demo-persona-select {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--reach-text-secondary);
+  background: var(--reach-bg-page);
+  border: 1px solid var(--reach-border-subtle);
+  border-radius: 6px;
+  padding: 5px 8px;
+  cursor: pointer;
+}
+
+.demo-persona-select:focus {
+  outline: 2px solid rgba(200, 30, 30, 0.25);
+  border-color: var(--reach-brand);
+}
+
+.user-chip__logout-btn {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--reach-brand);
+  padding: 5px 12px;
+  border-radius: 6px;
+  background: var(--reach-brand-light);
+  border: 1px solid #f0c4c4;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.user-chip__logout-btn:hover {
+  background: #f7d6d6;
+  border-color: var(--reach-brand);
 }
 
 /* --- Section & Page Headers --- */

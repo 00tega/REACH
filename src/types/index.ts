@@ -4,6 +4,46 @@
 
 export type Role = 'security-desk' | 'staff' | 'institution' | 'operator';
 
+export interface AuthUser {
+  email: string;
+  name: string;
+  role: Role;
+  inst?: string;
+}
+
+export interface InstitutionSignupData {
+  type: 'institution';
+  name: string;
+  email: string;
+  pass: string;
+  org: string;
+  category?: string;
+  city?: string;
+  people?: number;
+}
+
+export interface StaffSignupData {
+  type: 'staff';
+  name: string;
+  email: string;
+  pass: string;
+  invite: string;
+  roleMap: 'staff' | 'security-desk';
+}
+
+export interface OperatorSignupData {
+  type: 'operator';
+  name: string;
+  email: string;
+  pass: string;
+  key: string;
+}
+
+export type SignupData =
+  | InstitutionSignupData
+  | StaffSignupData
+  | OperatorSignupData;
+
 export type IncidentStatus = 'Verifying' | 'Responding' | 'Resolved' | 'On Scene' | 'Pushed';
 
 export interface Incident {
